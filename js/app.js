@@ -16,15 +16,16 @@ $searchInput.addEventListener('keypress', (e) => {
     $submitButton.classList.add('hidden')
 
     const searchValue = $searchInput.value
-    const api_call = `http://www.reddit.com/search.json?nsfw=no&q=${searchValue}`
 
-    console.log(api_call)
+    fetch(`http://reddit.com/search.json?nsfw=no&q=${searchValue}`)
+      .then((response) => response.json())
+      .then(response => {
+        const data = response.data.children
 
-    fetch(api_call)
-      .then((response) => {
-        console.log(response)
-        return response.json()
+        const arrayOfImages = data
+          .map(item => item.data.url)
+          .filter(url => url.includes('.jpg'))
       })
-      .then(res => console.log(res))
+      .catch(e => console.error(e))
   }
 })
