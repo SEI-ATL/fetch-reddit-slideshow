@@ -1,0 +1,6 @@
+Get the api link.
+Throw it in Postman
+See what comes back
+
+
+data.children[#]
