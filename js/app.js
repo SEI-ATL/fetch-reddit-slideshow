@@ -31,7 +31,6 @@ const createCarouselItems = (urls, searchTerm) => urls.map((url, index) => {
   return $carouselDiv
 })
 
-
 // Removes all children of a parent node
 const removeChildren = (parent) => {
   while (parent.lastChild) parent.removeChild(parent.lastChild);
@@ -57,12 +56,12 @@ const handleSearch = () => {
 
       // Go through the data from the API, get all the URLs, and filter out anything that isn't
       // a JPG
-      const arrayOfImages = data
+      const arrayOfImageUrls = data
         .map(item => item.data.url)
         .filter(url => url.includes('.jpg'))
 
       // Create carousel items out of the JPGs from the API call
-      const arrayOfCarouselItems = createCarouselItems(arrayOfImages, searchValue)
+      const arrayOfCarouselItems = createCarouselItems(arrayOfImageUrls, searchValue)
 
       // Add each of the carousel items to the carousel component in the DOM
       arrayOfCarouselItems.forEach(item => {
@@ -81,6 +80,7 @@ const handleSearch = () => {
         [$title, $description, $searchInput, $submitButton].forEach(el => {
           el.classList.remove('hidden')
         })
+        $searchInput.value = ''
 
         $container.removeChild($stopButton)
       })
