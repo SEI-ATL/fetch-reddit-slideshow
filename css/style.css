@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    background-image: url("../img/bg.jpg") !important;
+    background-size:cover !important;
+}
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+
+
+
+html,
+body,
+.carousel,
+.carousel-inner,
+.carousel-inner .item {
+    height: 100%;
+}
+
+input{
+    text-align:center;
+    border: 0 !important;
+    outline: 0 !important;
+    background: transparent !important;
+    border-bottom: 1px solid rgb(255, 255, 255) !important;
+    border-radius: 0 !important;
+ }
+
+::-webkit-input-placeholder {
+    font-style: italic;
+ }
+ :-moz-placeholder {
+    font-style: italic;
+ }
+ ::-moz-placeholder {
+    font-style: italic;
+ }
+ :-ms-input-placeholder {
+    font-style: italic;
+ }
+
+ .searchbar {
+    padding: 10% 0 0 0;
+
+ }
+
+ .slideshow{
+    overflow: auto;
+    margin: 0 0 0 0;
+
+ }
+
+input:focus, textarea:focus, select:focus{
+    outline: none !important;
+}
+
+input:focus{
+    outline: none !important;
+}
+
+*:focus {
+    outline: 0;
+}
+
+ img{
+   width: 100% !important;
+   height: 600px !important;
+   object-fit: cover !important;
+   border: 5px solid white;
+   filter: grayscale(100%);
+
+ }
+
+ img:hover{
+   filter: none;
+ }
+
+ .button {
+    border-radius: 4px;
+    background: transparent !important;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 0 0 0 35%;
+
+  }
+
+  button:focus {
+    outline: none;
+}
+
+ .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+ #search
+  {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase !important;
+    font-size: 2em !important;
+    letter-spacing: 4px !important;
+    overflow: hidden !important;
+    background: linear-gradient(90deg, #000, #fff, #000) !important;
+    background-repeat: no-repeat !important;
+    background-size: 80% !important;
+    animation: animate 3s linear infinite !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: rgba(255,255,255,0) !important;
+  }
+
+  @keyframes animate
+  {
+     0%
+     {
+         background-position: -500% !important;
+     }
+     100%
+     {
+         background-position: 500% !important;
+     }
+  }
