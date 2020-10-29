@@ -1,0 +1,3 @@
+- enter text search field
+- bootstrap carousel
+- reddit api

@@ -1,0 +1,21 @@
+#body {
+    background-color: rgb(117, 252, 178);
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel {
+    background-color: rgb(65, 216, 233);
+    margin: auto;
+    border: 3px solid black;
+    height: 600px;
+    width: 500px
+}
