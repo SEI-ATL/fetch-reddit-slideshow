@@ -2,6 +2,8 @@
 
 ![alt text](https://github.com/ruvvet/fetch-reddit-slideshow/blob/main/img/redditslide.gif)
 
+![alt text](https://github.com/ruvvet/fetch-reddit-slideshow/blob/main/img/ss.png)
+
 Slideshow that calls the Reddit API using fetch w/ javascript.
 Returns images found using the search query and displays them as a slideshow gallery.
 
