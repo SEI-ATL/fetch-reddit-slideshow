@@ -5,15 +5,16 @@ document.getElementById('submit-button').addEventListener('click', function() {
     
     const yourSearch = document.getElementById('word-input').value
     state = "run"
+    if (yourSearch){
     runFetch(yourSearch);
     form.classList.add("unsee");
-    document.getElementById('stop-button').classList.remove("unsee");
-  })
+    return state;
+}})
 
   document.getElementById('stop-button').addEventListener('click', function(){
     form.classList.remove("unsee");
-    document.getElementById('stop-button').classList.add("unsee");
-    
+    state = "still"
+    return state;
   })
 
    
