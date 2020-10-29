@@ -1,49 +1,103 @@
-const mainContainer = document.querySelector('.center')
+let query = null
+let title = document.querySelectorAll('.center');
+let stop = document.querySelectorAll('.stop');
 
-const hideSearchBar = document.querySelector('#search-button')
-.addEventListener('click', function() {
-    
-    const input = document.querySelector('#search-bar').value
-    document.querySelector('#search-bar').style.display = "none";
-        // event.preventDefault()
-    
-    
-    
-});
+var myVar = null;
 
+function imgArray(array) {
+    const imageArray = [];
+    for (i = 0; i < array.length; i++) {
+        imageUrl = array[i].data.url;
+        imageArray.push(imageUrl)
+    }
+    return imageArray
+}
 
-function appendImageToDom(image, imageUrl){
-    const makeImage = document.createElement('img')
-    img.setAttribute('src', 'realUrl')
-    img.setAttribute('alt', 'Image')
-    document.querySelector('.center').append(img)
-
+function newElement(element) {
+    const newElement = document.createElement(element);
+    return newElement;
 }
 
 
+// const mainContainer = document.querySelector('.center')
 
+// const hideSearchBar = document.querySelector('#search-button')
+// .addEventListener('click', function() {
+    
+// //     const input = document.querySelector('#search-bar').value
+// //     document.querySelector('#search-bar').style.display = "none";
+// //         // event.preventDefault()
+    
+    
+    
+// });
 
+function randomIndex(array) {
+    var randomNumber = Math.floor(Math.random() * array.length)
+    return randomNumber
+}
 
-let query = 'soccer'
-function getImage() {
-    fetch(`https://www.reddit.com/search.json?nsfw=no&q=${query}`)
+function setHidden(array) {
+    for (i = 0; i < array.length; i++)
+    array[i].style.visibility = 'hidden'
+}
+
+function setVisibile(array) {
+    for (i = 0; i <array.length; i++)
+     array[i].style.visibility = 'visible'
+    
+}
+
+document.querySelector('#search-button').addEventListener('click', function () {
+    let query = document.querySelector('#search-bar').value;
+
+    setHidden(title);
+    setVisibile(stop);
+    
+fetch(`https://www.reddit.com/search.json?nsfw=no&q=${query}`)
     .then(response => {
         return response.json();
     })
     .then(redditData => {
-        const imageUrl = redditData.data.children.map(child => child.data.url)
-        console.log(imageUrl);
-        // imageCarousel(imageUrl)
-            
-        function getRandomImage(imageUrl) {
-            const randomIndex = Math.floor(Math.random() * imageUrl.length)
-            return imageUrl[randomIndex]
-        }
+        const resultArray = redditData.data.children;
+        const newImageArray = (imgArray(resultArray));
+        const imageOnlyArray = newImageArray.filter(function(string) {
+            return string.endsWith(".jpg");
+        })
+        
+        myVar = setInterval(placeImage, 3000);
+        function placeImage () {
+            let i = randomIndex(imageOnlyArray);
+            var imgSource = document.querySelector('#image');
+            imgSource.src = imageOnlyArray[i];
+        }    
+        // function getRandomImage(imageUrl) {
+        //     const randomIndex = Math.floor(Math.random() * imageUrl.length)
+        //     return imageUrl[randomIndex]
+        // }
         
     })
-    .catch(err => console.log(err));
+})
 
-}
+
+// function appendImageToDom(image, imageUrl){
+//     const makeImage = document.createElement('img')
+//     img.setAttribute('src', 'realUrl')
+//     img.setAttribute('alt', 'Image')
+//     document.querySelector('.center').append(img)
+
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
