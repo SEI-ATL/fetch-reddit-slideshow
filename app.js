@@ -1,15 +1,20 @@
 let state ="still"
-
+let grabber;
 const form = document.getElementById('disapear');
 document.getElementById('submit-button').addEventListener('click', function() {
-    
+   
     const yourSearch = document.getElementById('word-input').value
     state = "run"
     if (yourSearch){
-    runFetch(yourSearch);
+    
+    console.log('checkpoint 1')
+        grabber = yourSearch;
+        console.log(grabber);
+        runFetch(yourSearch);
     form.classList.add("unsee");
     
     return state;
+    
 }})
 
   document.getElementById('stop-button').addEventListener('click', function(){
@@ -35,17 +40,19 @@ document.getElementById('submit-button').addEventListener('click', function() {
         for(let i=0; i < bridge2; i++) {
               
                 
-                    console.log(state)
+                    
             setTimeout(function() {
                 if (state ==='run'){
                 console.log(state);
                 const bridge1=getImage(json, i);
                 appendImage(bridge1,screen,pics)
                 console.log(i);}}, 
-                i * 3000, i)
-            
+                i * 1500, i)
+                
+            } 
+            if (state === 'run'){
+                runFetch(grabber);
             }
-            
             }
     )}
 
