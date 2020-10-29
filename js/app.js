@@ -14,10 +14,12 @@ document.getElementById('reset-button').addEventListener('click', function (){
     
 })
 function appendPicToDom(url) {
-    const image = document.createElement('img')
+    const image = document.querySelector("img")
     image.src = url
     image.id = "images";
     document.querySelector(".container").appendChild(image)
+    let newImage = document.querySelectorAll("#images")
+    newImage.setAttribute('src', url);
 }
 
 
