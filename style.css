@@ -25,13 +25,72 @@ img {
     top: 0;
     bottom: 0;
     margin: auto auto;
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
   
     transition-timing-function: step-end
-
+}
+.fade-in {
+    animation: fadeIn ease 10s;
+    -webkit-animation: fadeIn ease 10s;
+    -moz-animation: fadeIn ease 10s;
+    -o-animation: fadeIn ease 10s;
+    -ms-animation: fadeIn ease 10s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+  }
+  }
+.unsee {
+    visibility: hidden;
+    
 }
 
-.unsee {
-    display: none;
+.unsee1 {
+    visibility: hidden;
     
 }
 
@@ -57,21 +116,18 @@ section {
     margin-top:5px;
     padding-top: 3px;
     width:300px;
-    
 }
-#submit-button:hover
-{
+
+#submit-button:hover{
     border-radius:50%;
 }
 
-#stop-button:hover 
-
-{
+#stop-button:hover {
         border-radius:25%;
         
 }
 .container {
-    margin-top: 20%;
+    margin-top: 10%;
     margin: auto;
     background-color: rgb(187, 187, 85);
     position: relative;

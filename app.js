@@ -3,6 +3,8 @@ let grabber;
 const form = document.getElementById('disapear');
 const screen = document.querySelector('.container');
 const pics = document.createElement('img');
+const stopButton = document.getElementById('stop-button');
+stopButton.classList.add('unsee1');
 let grabber1;
 document.getElementById('submit-button').addEventListener('click', function() {
    
@@ -14,17 +16,19 @@ document.getElementById('submit-button').addEventListener('click', function() {
         grabber = yourSearch;
         console.log(grabber);
         runFetch(yourSearch);
-    form.classList.add("unsee");
-    
+    form.classList.add('unsee');
+    stopButton.classList.remove('unsee1');
     return state;
     
 }})
 
   document.getElementById('stop-button').addEventListener('click', function(){
-    form.classList.remove("unsee");
+    form.classList.remove('unsee');
     state = "still"
     const deleteImages = document.querySelector('img')
     deleteImages.remove();
+    stopButton.classList.add('unsee1');
+    form.classList.remove('unsee1');
     return state;
   })
 
@@ -50,7 +54,7 @@ document.getElementById('submit-button').addEventListener('click', function() {
                 const bridge1=getImage(json, i);
                 appendImage(bridge1,screen,pics)
                 console.log(i);}}, 
-                i * 1000, i)
+                i * 3000, i)
                 
             } 
             if (state === 'run'){
@@ -69,7 +73,7 @@ document.getElementById('submit-button').addEventListener('click', function() {
     setTimeout(function() {
         runFetch (grabber);
     }, 
-        grabber1 * 1000, grabber1)
+        grabber1 * 3000, grabber1)
             
       };
     })
