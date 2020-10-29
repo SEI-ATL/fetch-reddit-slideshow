@@ -2,8 +2,8 @@ let input = document.querySelector('input');
 let startButton = document.querySelector('.start');
 let stopButton = document.querySelector('.stop');
 let container = document.querySelector('.container');
-
 let numImages = 5;
+let heading = document.querySelector('.heading');
 
 let runSlideshow = (imageUrls => {
     let slideshow = document.querySelector('.slideshow')
@@ -27,6 +27,9 @@ function handleClickStart() {
         return response.json();
     })
     .then(data => {
+        
+        heading.classList.add('hidden');
+        stopButton.classList.remove('hidden');
 
         let imageUrls = [];
         let i = 0;
@@ -38,19 +41,12 @@ function handleClickStart() {
             i++;
             }
         
-
-
 let slideshow = document.createElement('div')
 slideshow.classList.add('slideshow')
 slideshow.style.backgroundImage = `url(${imageUrls[0]})`;
 container.appendChild(slideshow);
 
-
-
-
 runSlideshow(imageUrls);
-
-
 
     })
     .catch(error => {
@@ -61,14 +57,35 @@ runSlideshow(imageUrls);
 function handleClickStop() {
     let slideshow = document.querySelector('.slideshow');
     container.removeChild(slideshow);
+    heading.classList.remove('hidden');
+    stopButton.classList.add('hidden')
     input.value = '';
 }
 
-
-
-
 startButton.addEventListener('click', handleClickStart)
 stopButton.addEventListener('click', handleClickStop)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

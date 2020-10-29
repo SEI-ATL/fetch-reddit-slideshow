@@ -9,7 +9,11 @@
 }
 body {
     text-align: center;
+    
 }
-.buttons {
-    padding: 10px 0px 20px 0px;
+button {
+    margin: 10px 0px 20px 0px;
+}
+.hidden {
+    display: none;
 }
