@@ -1,13 +1,22 @@
 let input = document.querySelector('input');
 let startButton = document.querySelector('.start');
-startButton.addEventListener('click', handleClickStart);
 let stopButton = document.querySelector('.stop');
-let slideshow = document.querySelector('.slideshow');
-stopButton.addEventListener('click', handleClickStop);
-let allImages = document.querySelectorAll('img');
+let container = document.querySelector('.container');
 
+let numImages = 5;
 
-
+let runSlideshow = (imageUrls => {
+    let slideshow = document.querySelector('.slideshow')
+    let i = 1;
+    setInterval(() => {
+        slideshow.style.backgroundImage = `url(${imageUrls[i]})`;
+        if (i < numImages - 1) {
+            i++;
+        } else {
+            i = 0;
+        }
+    }, 1000);
+});
 
 function handleClickStart() {
 
@@ -18,18 +27,31 @@ function handleClickStart() {
         return response.json();
     })
     .then(data => {
-        let totalImages = 0;
-        for (let i = 0; i < data.data.children.length; i++) {
-            let url = data.data.children[i].data.url;
-            if (url.endsWith('jpg') === true || url.endsWith('png') === true) {
-                let image = allImages[i];
-                image.src = data.data.children[i].data.url;
-                totalImages++;
+
+        let imageUrls = [];
+        let i = 0;
+        while (imageUrls.length < numImages) {
+            let imageUrl = data.data.children[i].data.url;
+            if (imageUrl.endsWith('jpg') === true || imageUrl.endsWith('png') === true) {
+                imageUrls.push(imageUrl);
             }
-            if (totalImages >= 5) {
-                break;
+            i++;
             }
-        }
+        
+
+
+let slideshow = document.createElement('div')
+slideshow.classList.add('slideshow')
+slideshow.style.backgroundImage = `url(${imageUrls[0]})`;
+container.appendChild(slideshow);
+
+
+
+
+runSlideshow(imageUrls);
+
+
+
     })
     .catch(error => {
         console.log(error);
@@ -37,15 +59,16 @@ function handleClickStart() {
 }
 
 function handleClickStop() {
-    for (let i = 0; i < allImages.length; i++) {
-        slideshow.removeChild(allImages[i])
-    }
+    let slideshow = document.querySelector('.slideshow');
+    container.removeChild(slideshow);
     input.value = '';
 }
 
 
 
 
+startButton.addEventListener('click', handleClickStart)
+stopButton.addEventListener('click', handleClickStop)
 
 
 
