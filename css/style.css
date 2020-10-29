@@ -1,4 +1,19 @@
-#display-search {
+.input {
+    display: flex;
+    justify-content: center;
+}
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 425px;
     height: 300px;
-    width: 300px;
+    width: 400px;
+}
+body {
+    background-color: aquamarine;
+}
+h5 {
+    text-align: center;
 }

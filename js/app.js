@@ -1,10 +1,11 @@
 document.getElementById('submit-button').addEventListener('click', function() {
     const search = document.getElementById('search-input').value
-    setInterval(() => fetchImage(search), 5000);
+    var interval = setInterval(() => fetchImage(search), 5000);
+    document.getElementById('reset-button').addEventListener('click', function() {
+        clearInterval(interval)
 
 })
-document.getElementById('reset-button').addEventListener('click', function() {
-    clearInterval(5000)
+
 })
 
 function fetchImage(search) {
