@@ -20,6 +20,11 @@ function getImages(type) {
     fetch(`https://www.reddit.com/search.json?nsfw=no&q=${type}`)
     .then(result => result.json())
     .then(options => {
+        let imageCounter = 0;
+        setInterval(function() {
+            
+            imageCounter++
+        }, 3000);
         const optionsData = options.data.children;
         let optionsURLs = [];
         let optionsImages = [];
