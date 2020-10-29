@@ -1,6 +1,8 @@
 let state ="still"
 let grabber;
 const form = document.getElementById('disapear');
+const screen = document.querySelector('.container');
+const pics = document.createElement('img');
 document.getElementById('submit-button').addEventListener('click', function() {
    
     const yourSearch = document.getElementById('word-input').value
@@ -31,8 +33,8 @@ document.getElementById('submit-button').addEventListener('click', function() {
     fetch(`http://www.reddit.com/search.json?q=${word}+nsfw:no`)
     .then(res => res.json())
     .then(json => {
-        const screen = document.querySelector('.container');
-        const pics = document.createElement('img');
+        // const screen = document.querySelector('.container');
+        // const pics = document.createElement('img');
         const bridge2=getLength(json);
         
         
@@ -47,10 +49,12 @@ document.getElementById('submit-button').addEventListener('click', function() {
                 const bridge1=getImage(json, i);
                 appendImage(bridge1,screen,pics)
                 console.log(i);}}, 
-                i * 1500, i)
+                i * 400, i)
                 
             } 
             if (state === 'run'){
+                //const deleteImages2 = document.querySelector('img')
+    //deleteImages2.rem5ove();
                 runFetch(grabber);
             }
             }
@@ -77,15 +81,3 @@ function appendImage(link,output,image){
     image.setAttribute('src',link);
     output.appendChild(image);
 }
-
-// function makeScreen(link){
-//      const screen = document.querySelector('.container');
-//      const pics = document.createElement('img');
-//      console.log('hey!')
-//      pics.setAttribute('src',link);
-//      screen.appendChild(pics);
-//      return
-//     }
-
-
-
