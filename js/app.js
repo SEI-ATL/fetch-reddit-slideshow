@@ -18,7 +18,7 @@ let runSlideshow = (imageUrls => {
     } else {
       i = 0;
     }
-  }, 1000);
+  }, 3000);
 });
 
 let handleClickStart = () => {
@@ -75,5 +75,9 @@ let = handleClickStop = () => {
 
 // Event listeners
 
-startButton.addEventListener('click', handleClickStart);
+startButton.addEventListener('click', () => {
+  if (input.value !== '') {
+    handleClickStart();
+  }
+});
 stopButton.addEventListener('click', handleClickStop);
