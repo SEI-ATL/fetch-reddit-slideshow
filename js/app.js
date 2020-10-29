@@ -32,7 +32,7 @@ function getImages(type) {
             }
         };
         clearInitial();
-        displaySlideshow(optionsImages);
+        createSlides(optionsImages);
     });
 };
 
@@ -49,13 +49,13 @@ function createSlides(images) {
     main.append(reset);
 };
 
-function createShowElements() {
-    let div = document.createElement('div');
-}
+// function createShowElements() {
+//     let div = document.createElement('div');
+// }
 
-function displaySlideshow(slides) {
+// function displaySlideshow(slides) {
 
-}
+// }
 
 {/* <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
