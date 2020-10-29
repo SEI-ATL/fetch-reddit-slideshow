@@ -1,4 +1,8 @@
 let searchTerm = 'cats';
+let input = document.getElementsByTagName('input');
+let button = document.querySelector('#new_image');
+
+//searchTerm = input.innerText;
 
 fetch(`https://www.reddit.com/search.json?nsfw=no&q=${searchTerm}`) // fetches the JSON data.
 .then(response => response.json())
@@ -9,10 +13,22 @@ fetch(`https://www.reddit.com/search.json?nsfw=no&q=${searchTerm}`) // fetches t
         img.data.url.includes('.jpg')
     ).map(img => img.data.url);
     console.log(filterImgChildren);
-
-    //console.log(image.data.children[0].data.url);
+    
+    
+    appendImgToDom(filterImgChildren[Math.floor(Math.random() * filterImgChildren.length)])
+    
 })
 .catch(error => {
     console.log(error)
 })
+
+
+function appendImgToDom(image) {
+    const carouselImg = document.createElement('img');
+    carouselImg.setAttribute('src', `${image}`);
+    carouselImg.setAttribute('alt', `Your image selection has arrived`);
+    document.querySelector('#imgContainer').append(carouselImg);
+}
+
+
 
