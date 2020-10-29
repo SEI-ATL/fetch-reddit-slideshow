@@ -95,6 +95,13 @@ const getPosts = (searchQuery) => {
       getPosts(searchQuery);
   });
 
+  document.querySelector('#search').addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+    event.preventDefault();
+    let searchQuery = document.getElementById('search').value.toLowerCase();
+    getPosts(searchQuery);
+}});
+
 
 
 
