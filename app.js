@@ -1,3 +1,4 @@
+let intervalID = ''
 document.getElementById('submit-button').addEventListener('click', function() {
     const input = document.getElementById('search-input')
     const inputValue = input.value
@@ -7,32 +8,29 @@ document.getElementById('submit-button').addEventListener('click', function() {
 
 document.getElementById('clear-button').addEventListener('click', function() {
     let pic1 = document.querySelector('#img1')
-    pic1.setAttribute('src', '')
+    pic1.setAttribute('src', 'https://i1.wp.com/cornellsun.com/wp-content/uploads/2020/06/1591119073-screen_shot_2020-06-02_at_10.30.13_am.png?fit=700%2C652')
     pic1.style.height = '300px';
     pic1.style.width = '300px';
-
+    
     let pic2 = document.querySelector('#img2')
-    pic2.setAttribute('src', '')
+    pic2.setAttribute('src', 'https://i1.wp.com/cornellsun.com/wp-content/uploads/2020/06/1591119073-screen_shot_2020-06-02_at_10.30.13_am.png?fit=700%2C652')
     pic2.style.height = '300px';
     pic2.style.width = '300px';
+    
     let pic3 = document.querySelector('#img3')
-    pic3.setAttribute('src', '')
+    pic3.setAttribute('src', 'https://i1.wp.com/cornellsun.com/wp-content/uploads/2020/06/1591119073-screen_shot_2020-06-02_at_10.30.13_am.png?fit=700%2C652')
     pic3.style.height = '300px';
     pic3.style.width = '300px';
     clearInterval('')
   })
-let intervalID = ''
 
 function getImages(inputValue){
-    // console.log('hello', inputValue)
-fetch(`http://www.reddit.com/search.json?q=${inputValue}+nsfw:no`)
+fetch(`http://www.reddit.com/search.json?q=${inputValue}.jpg+nsfw:no`)
 .then(res => res.json())
 .then(function(imgs){
     const word = '.jpg';
-    const imageURLs = imgs.data.children.map(child => child.data.url)
-    // console.log('hello 2') 
+    let imageURLs = imgs.data.children.map(child => child.data.url)
     clearInterval('')
-    console.log(imageURLs)
     return setInterval(() => slideshow(imageURLs), 5000)
 })
 
@@ -40,7 +38,6 @@ fetch(`http://www.reddit.com/search.json?q=${inputValue}+nsfw:no`)
     return error
 })
 }
-getImages() // Do I need to call hear if the eventListener for the Go button starts the function?
 
 function slideshow(imgs, i){
     let pic1 = document.querySelector('#img1')
