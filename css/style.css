@@ -6,3 +6,14 @@ body {
 .stop {
     visibility: hidden;
 }
+.container {
+    visibility: hidden;
+}
+
+img {
+    
+    display: block;
+    margin: auto;
+    width: 600px;
+    height: 500px;
+}
