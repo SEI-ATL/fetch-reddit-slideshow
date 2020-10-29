@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Front-End</title>
+  <title>Reddit Image Slideshow</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Hello Front-End</h1>
+
+  <h1 class="title">Reddit Image Slideshow</h1>
+  <h3 class="title">Enter a word to receive a slideshow</h3>
+  
+
+  <input type="text" placeholder="Enter Text Here" class="title" id="search">
+  <input type="submit" class="title" id="go" value="Go!">
+  <div class="image">
+  <img src="" class="stop" id="image" style="visibility: hidden" alt="">
+  </div>
+
+  <input type="button" class='stop' id='stop' style="visibility: hidden" value="Stop!">
+  <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+    </div>
+  </div> -->
+  <script src="js/app.js"></script>
 </body>
 </html>
