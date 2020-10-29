@@ -40,3 +40,11 @@ p {
 .hidden {
   display: none;
 }
+
+@media screen and (max-width: 800px) {
+
+* {
+  font-size: 18px;
+}
+
+}
