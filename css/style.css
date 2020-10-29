@@ -17,3 +17,6 @@ body {
 h5 {
     text-align: center;
 }
+.hidden {
+    visibility: hidden;
+}
