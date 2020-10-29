@@ -23,8 +23,6 @@ appendImgToDom(filterImgChildren[Math.floor(Math.random() * filterImgChildren.le
 })
 }
 
-setInterval(imgLoop, 5000)
-
 
 function appendImgToDom(image) {
     const carouselImg = document.querySelector("#imgCarousel");
@@ -36,7 +34,7 @@ function appendImgToDom(image) {
 function getSearch() {
     button.addEventListener('click', function(){
         searchTerm = input.value;
-        console.log(searchTerm);
+        setInterval(imgLoop, 5000)
     })
 }
 
