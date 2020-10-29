@@ -1,4 +1,6 @@
 const body = document.querySelector('body')
+let searchParam = ''
+
 //create an element
 function newElement(tagType,classes){
     const newElement = document.createElement(tagType)
@@ -6,11 +8,6 @@ function newElement(tagType,classes){
         newElement.classList.add(classes[i])
     }
     return newElement
-}
-//extract value
-const extractValue = () =>{
-    const home = generateHomeCard()
-    return home
 }
 
 //home page
@@ -37,42 +34,63 @@ const generateHomeCard = () =>{
     card.append(title,form)
     return [card,searchBtn,input]
 }
+const generateResults = (anObject) =>{
+    const card =newElement('div',['card'])
+    const img = newElement('img',['rImg'])
+    img.setAttribute('src',`${anObject.icon}`)
+    img.setAttribute('alt',`${anObject.name}`)
 
+    
+    card.append(img)
+    //append to body
+    body.appendChild(card)
+    return card
 
+}
 
-
-let searchParam = ''
-// console.log(home[1]);
+//set display var
+const info = (data) =>{
+    // for (let i = 0; i < .length; i++)
+    const display = {
+        icon: data.data.children[0].data.icon_img,
+        name: data.data.children[0].data.display_name_prefixed,
+        images: []
+        }   
+        return display
+}
+//fetch reddit
 const fetchReddit = (searchKey) =>{
+    let display = {}
     fetch(`https://www.reddit.com/subreddits/search.json?nsfw=no&q=${searchKey}`)
     .then(response=>{return response.json()})
     .then(redditData=>{
-        const display = {
-            icon: redditData.data.children[0].data.icon_img,
-            name: redditData.data.children[0].data.display_name_prefixed
+        console.log(redditData);
+        const result = info(redditData)
+        console.log(result);
+        generateResults(result)
+        const refreshBtn = newElement('button',['clearResults'])
+        refreshBtn.textContent = 'New Search'
+        body.appendChild(refreshBtn)
+        refreshBtn.onclick = function(){
+            body.innerHTML = ""
+            if (body.innerHTML === ""){
+                pageUI()
+            }
         }
         
-        const card =newElement('div',['card'])
-        const img = newElement('img',['rImg'])
-        img.setAttribute('src',`${display.icon}`)
-        img.setAttribute('alt',`${display.name}`)
-
-        card.append(img)
-        //append to body
-        body.appendChild(card)
     })
-
+    
 }
+
 const pageUI = () =>{
     const home = generateHomeCard()
     body.appendChild(home[0])
-
+    
     home[1].addEventListener('click',()=>{
         searchParam = home[2].value
-        console.log(searchParam)
-        fetchReddit(searchParam)
         body.removeChild(home[0])
-        console.log();
+        fetchReddit(searchParam)
     })
+    
 }
 pageUI()
