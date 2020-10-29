@@ -1,57 +1,17 @@
+body {
+  text-align: center;
+}
+
+.buttons {
+  padding: 1em 0 2em 0;
+}
+
 .slideshow {
   background-color: white;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   height: 36vw;
+  margin: 0 auto;
   width: 64vw;
 }
-
-.hidden {
-  display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Version 1 */
-
-
-/* img {
-  width: 600px;
-  position: absolute;
-}
-
-.slideshow {
-  position: relative;
-}
-
-.front-image {
-  z-index: 1;
-} */
