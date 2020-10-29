@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(47, 1, 65);
+}
+
+input {
+    margin-top: none;
+    margin-left: none;
+    margin-right: none;
+    width: 500px;
+    color: honeydew;
+    background-color: transparent;
+    font-size: 72px;
+    border: none;
+    border-bottom: 2px solid white;
+}
+
+button {
+    cursor: pointer;
+    background-color: transparent;
+    width: 75px;
+    height: 50px;
+
+
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* }
+#search-bar:click ~ .center {
+    display: none;
+} */
