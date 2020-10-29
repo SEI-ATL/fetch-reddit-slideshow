@@ -1,20 +1,39 @@
 document.getElementById('submit-button').addEventListener('click', function() {
-    const input = document.getElementById('search-input').value
-    getImages()
+    const input = document.getElementById('search-input')
+    const inputValue = input.value
+    // console.log(inputValue)
+    return getImages(inputValue)
   })
 
-function getImages(){
-fetch(`http://www.reddit.com/search.json?q=cats+nsfw:no`)
+document.getElementById('clear-button').addEventListener('click', function() {
+    let pic1 = document.querySelector('#img1')
+    pic1.setAttribute('src', '')
+    pic1.style.height = '300px';
+    pic1.style.width = '300px';
+
+    let pic2 = document.querySelector('#img2')
+    pic2.setAttribute('src', '')
+    pic2.style.height = '300px';
+    pic2.style.width = '300px';
+    let pic3 = document.querySelector('#img3')
+    pic3.setAttribute('src', '')
+    pic3.style.height = '300px';
+    pic3.style.width = '300px';
+    clearInterval('')
+  })
+let intervalID = ''
+
+function getImages(inputValue){
+    // console.log('hello', inputValue)
+fetch(`http://www.reddit.com/search.json?q=${inputValue}+nsfw:no`)
 .then(res => res.json())
 .then(function(imgs){
-    const imageURLs = imgs.data.children.map(child => child.data.url) 
+    const word = '.jpg';
+    const imageURLs = imgs.data.children.map(child => child.data.url)
+    // console.log('hello 2') 
+    clearInterval('')
     console.log(imageURLs)
-    return setInterval(() => slideshow(imageURLs), 2000)
-    for (let i = 0; i < imgs.data.children.length; i++){
-        console.log(imgs.data.children[i].data.url) // I still need to append them to an img and append them to my container
-
-        
-    }
+    return setInterval(() => slideshow(imageURLs), 5000)
 })
 
 .catch(function(error){
@@ -38,16 +57,4 @@ function slideshow(imgs, i){
     pic3.style.height = '300px';
     pic3.style.width = '300px';
 }
-
-
-
-
-
-// Setup page
-// Get working api
-// Make function to grab 3 images  
-// append them in the container div
-// set this to cycle every 2-3 seconds
-
-// make a function that will place 3 items in a div every 4 seconds incrementing by i
 

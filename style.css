@@ -1,8 +1,23 @@
 h1 {
     text-align: center;
 }
-
+p {
+    text-align: center;
+}
+body {
+    background: black;
+}
+.heading {
+    background: orangered;
+    border-radius: 25px;
+    height: 250px;;
+}
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.buttons {
+    margin-left: 600px;
+    margin-top: 100px;
 }
