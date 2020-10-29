@@ -32,82 +32,99 @@ function getImages(type) {
             }
         };
         clearInitial();
-        createShowElements(optionsImages);
+        setInterval(createSlides, 3000, optionsImages);
+        // createSlides(optionsImages);
     });
 };
 
-// function createSlides(images) {
-//     let slides = [];
-//     for (let i = 0; i < images.length; i++) {
-//         let slide = document.createElement('img');
-//         slide.setAttribute('src', images[i])
-//         slides.push(slide);
-//     };
-// };
+function createSlides(images) {
+    // images[0];
+    let random = Math.floor(Math.random()*images.length)
+    let slide = document.createElement('img');
+    // slide.setAttribute('src', null);
+    slide.setAttribute('src', images[random]);
+    main.append(slide);
+    
 
-function createShowElements(images) {
-    let carousel = document.createElement('div');
-    carousel.setAttribute('id', 'carouselExampleControls');
-    carousel.classList.add('carousel', 'slide');
-    carousel.setAttribute('data-ride', 'carousel')
-    let inner = document.createElement('div');
-    inner.classList.add('carousel-inner');
-    let item = document.createElement('div');
-    item.classList.add('carousel-item');
-    // let image = document.createElement('img');
-    // image.classList.add('d-block', 'w-100');
-    let previous = document.createElement('a');
-    previous.classList.add('carousel-control-prev');
-    previous.setAttribute('href', '#carouselExampleControls');
-    previous.setAttribute('role', 'button');
-    previous.setAttribute('data-slide', 'prev');
-    let previousIcon = document.createElement('span');
-    previousIcon.classList.add('carousel-control-prev-icon');
-    previousIcon.setAttribute('aria-hidden', 'true');
-    let previousText = document.createElement('span');
-    previousText.classList.add('sr-only');
-    previousText.textContent = 'Previous';
-    let next = document.createElement('a');
-    next.classList.add('carousel-control-next');
-    next.setAttribute('href', '#carouselExampleControls');
-    next.setAttribute('role', 'button');
-    next.setAttribute('data-slide', 'next');
-    let nextIcon = document.createElement('span');
-    nextIcon.classList.add('carousel-control-next-icon');
-    nextIcon.setAttribute('aria-hidden', 'true');
-    let nextText = document.createElement('span');
-    nextText.classList.add('sr-only');
-    nextText.textContent = 'Next';
-    let slides = []
-    for (let i = 0; i < images.length; i++) {
-        let slide = document.createElement('img');
-        slide.setAttribute('src', images[i]);
-        slide.classList.add('d-block', 'w-100')
-        slides.push(slide);
-        // item.append(slides[i]);
-        // main.append(slides[i]);
-    };
-    createSlideshow(slides);
-};
-
-function createSlideshow(slides) {
-    main.append(carousel);
-    carousel.append(inner);
-    inner.append(item);
-    // item.append(image);
-    for (let i = 0; i < slides.length; i++) {
-        item.append(slides[i]);
-    };
-    slides[0].classList.remove('carousel-item');
-    slides[0].classList.add('carousel-item-active');
-    carousel.append(previous);
-    previous.append(previousIcon);
-    previous.append(previousText);
-    carousel.append(next);
-    next.append(nextIcon);
-    next.append(nextText);
+    // let slides = [];
+    // for (let i = 0; i < images.length; i++) {
+    //     slide.setAttribute('src', null);
+    //     slide.setAttribute('src', images[i]);
+    //     // slides.push(slide);
+    // };
+    // for (let i = 0; i < images.length; i++) {
+    //     main.append(slides[i]);
+    // };
     main.append(reset);
 };
+
+// function changeURL(image) {
+//     image.setAttribute('src', )
+// };
+
+// function createShowElements(images) {
+//     let carousel = document.createElement('div');
+//     carousel.setAttribute('id', 'carouselExampleControls');
+//     carousel.classList.add('carousel', 'slide');
+//     carousel.setAttribute('data-ride', 'carousel')
+//     let inner = document.createElement('div');
+//     inner.classList.add('carousel-inner');
+//     let item = document.createElement('div');
+//     item.classList.add('carousel-item');
+//     // let image = document.createElement('img');
+//     // image.classList.add('d-block', 'w-100');
+//     let previous = document.createElement('a');
+//     previous.classList.add('carousel-control-prev');
+//     previous.setAttribute('href', '#carouselExampleControls');
+//     previous.setAttribute('role', 'button');
+//     previous.setAttribute('data-slide', 'prev');
+//     let previousIcon = document.createElement('span');
+//     previousIcon.classList.add('carousel-control-prev-icon');
+//     previousIcon.setAttribute('aria-hidden', 'true');
+//     let previousText = document.createElement('span');
+//     previousText.classList.add('sr-only');
+//     previousText.textContent = 'Previous';
+//     let next = document.createElement('a');
+//     next.classList.add('carousel-control-next');
+//     next.setAttribute('href', '#carouselExampleControls');
+//     next.setAttribute('role', 'button');
+//     next.setAttribute('data-slide', 'next');
+//     let nextIcon = document.createElement('span');
+//     nextIcon.classList.add('carousel-control-next-icon');
+//     nextIcon.setAttribute('aria-hidden', 'true');
+//     let nextText = document.createElement('span');
+//     nextText.classList.add('sr-only');
+//     nextText.textContent = 'Next';
+//     let slides = []
+//     for (let i = 0; i < images.length; i++) {
+//         let slide = document.createElement('img');
+//         slide.setAttribute('src', images[i]);
+//         slide.classList.add('d-block', 'w-100')
+//         slides.push(slide);
+//         // item.append(slides[i]);
+//         // main.append(slides[i]);
+//     };
+//     createSlideshow(slides);
+// };
+
+// function createSlideshow(slides) {
+//     main.append(carousel);
+//     carousel.append(inner);
+//     inner.append(item);
+//     // item.append(image);
+//     for (let i = 0; i < slides.length; i++) {
+//         item.append(slides[i]);
+//     };
+//     slides[0].classList.remove('carousel-item');
+//     slides[0].classList.add('carousel-item-active');
+//     carousel.append(previous);
+//     previous.append(previousIcon);
+//     previous.append(previousText);
+//     carousel.append(next);
+//     next.append(nextIcon);
+//     next.append(nextText);
+//     main.append(reset);
+// };
 
 // function displaySlideshow(slides) {
     
