@@ -1,0 +1,22 @@
+
+img {
+    max-height: 500px;
+}
+
+body {
+    text-align: center;
+    background-image: url("/Users/Nicole/Desktop/SEI1019/unit_one/deliverable/fetch-reddit-slideshow/fetchdog.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: bottom;
+
+}
+
+.buttonsHere {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+    margin: 50px; 
+}
