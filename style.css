@@ -1,0 +1,80 @@
+body{
+    background-color: rgb(187, 187, 85);
+    font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+    padding-top: 20px;
+    font-family: 'Nunito', sans-serif;
+}
+
+button {
+    font-family: 'Nunito', sans-serif;
+}
+
+p {
+    font-family: 'Nunito', sans-serif;
+}
+
+img {
+    height: 400px;
+    width: auto;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto auto;
+  
+    transition-timing-function: step-end
+
+}
+
+.unsee {
+    display: none;
+    
+}
+
+section {
+    text-align: center;
+    background-color: rgb(187, 187, 85);
+}
+
+
+#stop-button {
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top:5px;
+    padding-top: 3px;
+    width:300px;
+}
+
+#submit-button {
+    text-align: center;
+    display: block;
+    margin: auto;
+    margin-top:5px;
+    padding-top: 3px;
+    width:300px;
+    
+}
+#submit-button:hover
+{
+    border-radius:50%;
+}
+
+#stop-button:hover 
+
+{
+        border-radius:25%;
+        position: fixed;
+}
+.container {
+    margin-top: 20%;
+    margin: auto;
+    background-color: rgb(187, 187, 85);
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
