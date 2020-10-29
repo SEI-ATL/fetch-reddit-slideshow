@@ -32,17 +32,20 @@ const getPosts = (searchQuery) => {
         }, []);
         //returns a bunch of urls as an array
 
+        const title = data.data.children.map(child => {return child.data.title});
+
+        console.log(title);
         console.log(images);
 
         // call create slides function to set DOM stuff
-        createSlideShow(images);
+        createSlideShow(images, title);
       })
       .catch((e) => {
         console.error('Error: ', e);
       });
   };
 
-  const createSlideShow = (images) => {
+  const createSlideShow = (images, title) => {
     //select random index number >> this is the slide that will show first
     const activeSlide = Math.floor(Math.random() * images.length);
 
@@ -60,7 +63,18 @@ const getPosts = (searchQuery) => {
         const image = document.createElement('div');
         image.innerHTML= `<img src = ${images[i]}>`;
         image.setAttribute("class", "carousel-item");
+        image.setAttribute ("alt", `${title[i]}`);
         document.querySelector(".carousel-inner").appendChild(image);
+        const captionDiv = document.createElement("div");
+        captionDiv.setAttribute("class", "carousel-caption d-none d-md-block");
+
+        image.appendChild(captionDiv);
+        const caption = document.createElement("p");
+        caption.style.backgroundColor = "#00000050";
+        caption.textContent = `${title[i]}`;
+        captionDiv.appendChild(caption);
+
+
 
       // set slide that is showing to be the random selected slide
       if (i == activeSlide) {
