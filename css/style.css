@@ -1,0 +1,57 @@
+.slideshow {
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 36vw;
+  width: 64vw;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Version 1 */
+
+
+/* img {
+  width: 600px;
+  position: absolute;
+}
+
+.slideshow {
+  position: relative;
+}
+
+.front-image {
+  z-index: 1;
+} */
