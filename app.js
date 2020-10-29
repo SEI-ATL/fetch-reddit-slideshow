@@ -8,33 +8,46 @@ document.getElementById('submit-button').addEventListener('click', function() {
     if (yourSearch){
     runFetch(yourSearch);
     form.classList.add("unsee");
+    
     return state;
 }})
 
   document.getElementById('stop-button').addEventListener('click', function(){
     form.classList.remove("unsee");
     state = "still"
+    const deleteImages = document.querySelector('img')
+    deleteImages.remove();
     return state;
   })
 
    
 
-function runFetch(word){
-fetch(`http://www.reddit.com/search.json?q=${word}+nsfw:no`)
-.then(res => res.json())
-.then(json => {
-    const screen = document.querySelector('.container');
-    const pics = document.createElement('img');
-    const bridge2=getLength(json);
- 
-    for(let i=0; i < bridge2; i++) {
+  function runFetch(word){
+    fetch(`http://www.reddit.com/search.json?q=${word}+nsfw:no`)
+    .then(res => res.json())
+    .then(json => {
+        const screen = document.querySelector('.container');
+        const pics = document.createElement('img');
+        const bridge2=getLength(json);
         
-        setTimeout(function() {
-            const bridge1=getImage(json, i);
-            appendImage(bridge1,screen,pics)
-            console.log(i);}, 
-            i * 3000, i)}}
-)}
+        
+        
+        for(let i=0; i < bridge2; i++) {
+              
+                
+                    console.log(state)
+            setTimeout(function() {
+                if (state ==='run'){
+                console.log(state);
+                const bridge1=getImage(json, i);
+                appendImage(bridge1,screen,pics)
+                console.log(i);}}, 
+                i * 3000, i)
+            
+            }
+            
+            }
+    )}
 
 
 //}  
